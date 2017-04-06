@@ -1,0 +1,484 @@
+<div class="apidocDiv">
+<style>
+/*csslint
+*/
+.apidocDiv {
+    background: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.apidocDiv a[href] {
+    color: #33f;
+    font-weight: bold;
+    text-decoration: none;
+}
+.apidocDiv a[href]:hover {
+    text-decoration: underline;
+}
+.apidocCodeCommentSpan {
+    background: #bbf;
+    color: #000;
+    display: block;
+}
+.apidocCodeKeywordSpan {
+    color: #d00;
+    font-weight: bold;
+}
+.apidocCodePre {
+    background: #eef;
+    border: 1px solid;
+    color: #777;
+    padding: 5px;
+    white-space: pre-wrap;
+}
+.apidocFooterDiv {
+    margin-top: 20px;
+    text-align: center;
+}
+.apidocModuleLi {
+    margin-top: 10px;
+}
+.apidocSectionDiv {
+    border-top: 1px solid;
+    margin-top: 20px;
+}
+.apidocSignatureSpan {
+    color: #777;
+    font-weight: bold;
+}
+</style>
+<h1>api documentation for
+    <a
+
+        href="https://github.com/jonschlinkert/gray-matter"
+
+    >gray-matter (v2.1.1)</a>
+</h1>
+<h4>Parse front-matter from a string or file. Fast, reliable and easy to use. Parses YAML front matter by default, but also has support for YAML, JSON, TOML or Coffee Front-Matter, with options to set custom delimiters. Used by metalsmith, assemble, verb and </h4>
+<div class="apidocSectionDiv"><a
+    href="#apidoc.tableOfContents"
+    id="apidoc.tableOfContents"
+><h1>table of contents</h1></a><ol>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.gray-matter">module gray-matter</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.gray-matter.read">
+            function <span class="apidocSignatureSpan">gray-matter.</span>read
+            <span class="apidocSignatureSpan">(fp, options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.gray-matter.stringify">
+            function <span class="apidocSignatureSpan">gray-matter.</span>stringify
+            <span class="apidocSignatureSpan">(str, data, options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.gray-matter.test">
+            function <span class="apidocSignatureSpan">gray-matter.</span>test
+            <span class="apidocSignatureSpan">(str, options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">gray-matter.</span>parsers</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.gray-matter.parsers">module gray-matter.parsers</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.gray-matter.parsers.coffee">
+            function <span class="apidocSignatureSpan">gray-matter.parsers.</span>coffee
+            <span class="apidocSignatureSpan">(str, options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.gray-matter.parsers.cson">
+            function <span class="apidocSignatureSpan">gray-matter.parsers.</span>cson
+            <span class="apidocSignatureSpan">(str, options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.gray-matter.parsers.javascript">
+            function <span class="apidocSignatureSpan">gray-matter.parsers.</span>javascript
+            <span class="apidocSignatureSpan">(str, options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.gray-matter.parsers.js">
+            function <span class="apidocSignatureSpan">gray-matter.parsers.</span>js
+            <span class="apidocSignatureSpan">(str, options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.gray-matter.parsers.json">
+            function <span class="apidocSignatureSpan">gray-matter.parsers.</span>json
+            <span class="apidocSignatureSpan">(str, options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.gray-matter.parsers.toml">
+            function <span class="apidocSignatureSpan">gray-matter.parsers.</span>toml
+            <span class="apidocSignatureSpan">(str, opts)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.gray-matter.parsers.yaml">
+            function <span class="apidocSignatureSpan">gray-matter.parsers.</span>yaml
+            <span class="apidocSignatureSpan">(str, options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">gray-matter.parsers.</span>requires</span>
+
+        </li>
+
+    </ol></li>
+
+</ol></div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.gray-matter" id="apidoc.module.gray-matter">module gray-matter</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.gray-matter.read" id="apidoc.element.gray-matter.read">
+        function <span class="apidocSignatureSpan">gray-matter.</span>read
+        <span class="apidocSignatureSpan">(fp, options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">read = function (fp, options) {
+  var str = fs.readFileSync(fp, &#x27;utf8&#x27;);
+  var obj = matter(str, options);
+  return extend(obj, {
+    path: fp
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+### [.read](index.js#L136)
+
+Read a file and parse front matter. Returns the same object as `matter()`.
+
+**Example**
+
+```js
+matter.<span class="apidocCodeKeywordSpan">read</span>(&#x27;home.md&#x27;);
+```
+
+**Params**
+
+* `fp` **{String}**: file path of the file to read.
+* `options` **{Object}**: Options to pass to gray-matter.
+* `returns` **{Object}**
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.gray-matter.stringify" id="apidoc.element.gray-matter.stringify">
+        function <span class="apidocSignatureSpan">gray-matter.</span>stringify
+        <span class="apidocSignatureSpan">(str, data, options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">stringify = function (str, data, options) {
+  var delims = arrayify(options &#x26;&#x26; options.delims || &#x27;---&#x27;);
+  var res = &#x27;&#x27;;
+  res += delims[0] + &#x27;\n&#x27;;
+  res += YAML.safeDump(data, options);
+  res += (delims[1] || delims[0]) + &#x27;\n&#x27;;
+  res += str + &#x27;\n&#x27;;
+  return res;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+Stringify an object to front-matter-formatted YAML, and concatenate it to the given string.
+
+Results in:
+
+**Examples**
+
+```js
+matter.<span class="apidocCodeKeywordSpan">stringify</span>(&#x27;foo bar baz&#x27;, {title: &#x27;Home&#x27;});
+```
+
+```yaml
+---
+title: Home
+---
+foo bar baz
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.gray-matter.test" id="apidoc.element.gray-matter.test">
+        function <span class="apidocSignatureSpan">gray-matter.</span>test
+        <span class="apidocSignatureSpan">(str, options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">test = function (str, options) {
+  var delims = arrayify(options &#x26;&#x26; options.delims || &#x27;---&#x27;);
+  return isFirst(str, delims[0]);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.gray-matter.parsers" id="apidoc.module.gray-matter.parsers">module gray-matter.parsers</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.gray-matter.parsers.coffee" id="apidoc.element.gray-matter.parsers.coffee">
+        function <span class="apidocSignatureSpan">gray-matter.parsers.</span>coffee
+        <span class="apidocSignatureSpan">(str, options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">coffee = function (str, options) {
+  var opts = extend({eval: false, strict: false}, options);
+  if (opts.eval) {
+    try {
+      var coffee = parser.requires.coffee || (parser.requires.coffee = require(&#x27;coffee-script&#x27;));
+      return coffee[&#x27;eval&#x27;](str, options);
+    } catch (err) {
+      throw new SyntaxError(msg(&#x27;coffee-script&#x27;, err));
+    }
+  } else {
+
+    // if `eval` isn&#x27;t set
+    if (opts.strict) {
+      throw new Error(evalError(&#x27;coffee&#x27;));
+    } else {
+      console.error(evalError(&#x27;coffee&#x27;, true));
+    }
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.gray-matter.parsers.cson" id="apidoc.element.gray-matter.parsers.cson">
+        function <span class="apidocSignatureSpan">gray-matter.parsers.</span>cson
+        <span class="apidocSignatureSpan">(str, options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">cson = function (str, options) {
+  var opts = extend({eval: false, strict: false}, options);
+  if (opts.eval) {
+    try {
+      var coffee = parser.requires.coffee || (parser.requires.coffee = require(&#x27;coffee-script&#x27;));
+      return coffee[&#x27;eval&#x27;](str, options);
+    } catch (err) {
+      throw new SyntaxError(msg(&#x27;coffee-script&#x27;, err));
+    }
+  } else {
+
+    // if `eval` isn&#x27;t set
+    if (opts.strict) {
+      throw new Error(evalError(&#x27;coffee&#x27;));
+    } else {
+      console.error(evalError(&#x27;coffee&#x27;, true));
+    }
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.gray-matter.parsers.javascript" id="apidoc.element.gray-matter.parsers.javascript">
+        function <span class="apidocSignatureSpan">gray-matter.parsers.</span>javascript
+        <span class="apidocSignatureSpan">(str, options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">javascript = function (str, options) {
+  var opts = extend({wrapped: true, eval: false, strict: false}, options);
+  if (opts.eval) {
+    if (opts.wrapped) {
+      str = &#x27;function data() {return {&#x27; + str + &#x27;}; } data();&#x27;;
+    }
+    try {
+      return eval(str);
+    } catch (err) {
+      throw new SyntaxError(msg(&#x27;javascript&#x27;, err));
+    }
+    return {};
+  } else {
+
+    // if `eval` isn&#x27;t set
+    if (opts.strict) {
+      throw new Error(evalError(&#x27;javascript&#x27;));
+    } else {
+      console.error(evalError(&#x27;javascript&#x27;, true));
+    }
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.gray-matter.parsers.js" id="apidoc.element.gray-matter.parsers.js">
+        function <span class="apidocSignatureSpan">gray-matter.parsers.</span>js
+        <span class="apidocSignatureSpan">(str, options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">js = function (str, options) {
+  var opts = extend({wrapped: true, eval: false, strict: false}, options);
+  if (opts.eval) {
+    if (opts.wrapped) {
+      str = &#x27;function data() {return {&#x27; + str + &#x27;}; } data();&#x27;;
+    }
+    try {
+      return eval(str);
+    } catch (err) {
+      throw new SyntaxError(msg(&#x27;javascript&#x27;, err));
+    }
+    return {};
+  } else {
+
+    // if `eval` isn&#x27;t set
+    if (opts.strict) {
+      throw new Error(evalError(&#x27;javascript&#x27;));
+    } else {
+      console.error(evalError(&#x27;javascript&#x27;, true));
+    }
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.gray-matter.parsers.json" id="apidoc.element.gray-matter.parsers.json">
+        function <span class="apidocSignatureSpan">gray-matter.parsers.</span>json
+        <span class="apidocSignatureSpan">(str, options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">json = function (str, options) {
+  var opts = extend({strict: false}, options);
+  try {
+    return JSON.parse(str);
+  } catch (err) {
+    if (opts.strict) {
+      throw new SyntaxError(msg(&#x27;JSON&#x27;, err));
+    } else {
+      return {};
+    }
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.gray-matter.parsers.toml" id="apidoc.element.gray-matter.parsers.toml">
+        function <span class="apidocSignatureSpan">gray-matter.parsers.</span>toml
+        <span class="apidocSignatureSpan">(str, opts)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">toml = function (str, opts) {
+  try {
+    var toml = parser.requires.toml || (parser.requires.toml = require(&#x27;toml&#x27;));
+    return toml.parse(str);
+  } catch (err) {
+    if (opts.strict) {
+      throw new SyntaxError(msg(&#x27;TOML&#x27;, err));
+    } else {
+      return {};
+    }
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.gray-matter.parsers.yaml" id="apidoc.element.gray-matter.parsers.yaml">
+        function <span class="apidocSignatureSpan">gray-matter.parsers.</span>yaml
+        <span class="apidocSignatureSpan">(str, options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">yaml = function (str, options) {
+  var opts = extend({strict: false, safeLoad: false}, options);
+  try {
+    var YAML = parser.requires.yaml || (parser.requires.yaml = require(&#x27;js-yaml&#x27;));
+    return opts.safeLoad ? YAML.safeLoad(str, options) : YAML.load(str, options);
+  } catch (err) {
+    if (opts.strict) {
+      throw new SyntaxError(msg(&#x27;js-yaml&#x27;, err));
+    } else {
+      return {};
+    }
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+
+</div>
+
+<div class="apidocFooterDiv">
+    [ this document was created with
+    <a href="https://github.com/kaizhu256/node-utility2" target="_blank">utility2</a>
+    ]
+</div>
+</div>
