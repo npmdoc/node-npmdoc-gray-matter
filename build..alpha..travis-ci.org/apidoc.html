@@ -63,6 +63,15 @@
 
         <li>
 
+            <a class="apidocElementLiA" href="#apidoc.element.gray-matter.gray-matter">
+            function <span class="apidocSignatureSpan"></span>gray-matter
+            <span class="apidocSignatureSpan">(str, options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
             <a class="apidocElementLiA" href="#apidoc.element.gray-matter.read">
             function <span class="apidocSignatureSpan">gray-matter.</span>read
             <span class="apidocSignatureSpan">(fp, options)</span>
@@ -173,6 +182,95 @@
 
 <div class="apidocSectionDiv">
 <h1><a href="#apidoc.module.gray-matter" id="apidoc.module.gray-matter">module gray-matter</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.gray-matter.gray-matter" id="apidoc.element.gray-matter.gray-matter">
+        function <span class="apidocSignatureSpan"></span>gray-matter
+        <span class="apidocSignatureSpan">(str, options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function matter(str, options) {
+  if (typeof str !== &#x27;string&#x27;) {
+    throw new Error(&#x27;gray-matter expects a string&#x27;);
+  }
+
+  // default results to build up
+  var res = {orig: str, data: {}, content: str};
+  if (str === &#x27;&#x27;) {
+    return res;
+  }
+
+  // delimiters
+  var delims = arrayify((options &#x26;&#x26; options.delims) || &#x27;---&#x27;);
+  var a = delims[0];
+
+  // strip byte order marks
+  str = stripBom(str);
+
+  // if the first delim isn&#x27;t the first thing, return
+  if (!isFirst(str, a)) {
+    return res;
+  }
+
+  var b = &#x27;\n&#x27; + (delims[1] || delims[0]);
+  var alen = a.length;
+
+  // if the next character after the first delim
+  // is a character in the first delim, then just
+  // return the default object. it&#x27;s either a bad
+  // delim or not a delimiter at all.
+  if (a.indexOf(str.charAt(alen + 1)) !== -1) {
+    return res;
+  }
+
+  var len = str.length;
+
+  // find the index of the next delimiter before
+  // going any further. If not found, return.
+  var end = str.indexOf(b, alen + 1);
+  if (end === -1) {
+    end = len;
+  }
+
+  // detect a language, if defined
+  var lang = str.slice(alen, str.indexOf(&#x27;\n&#x27;));
+  // measure the lang before trimming whitespace
+  var start = alen + lang.length;
+
+  var opts = options || {};
+  opts.lang = opts.lang || &#x27;yaml&#x27;;
+  lang = (lang &#x26;&#x26; lang.trim()) || opts.lang;
+
+  // get the front matter (data) string
+  var data = str.slice(start, end).trim();
+  if (data) {
+    // if data exists, see if we have a matching parser
+    var fn = opts.parser || parsers[lang];
+    if (typeof fn === &#x27;function&#x27;) {
+      // run the parser on the data string
+      res.data = fn(data, opts);
+    } else {
+      throw new Error(&#x27;gray-matter cannot find a parser for: &#x27; + str);
+    }
+  }
+
+  // grab the content from the string, stripping
+  // an optional new line after the second delim
+  var con = str.substr(end + b.length);
+  if (con.charAt(0) === &#x27;\n&#x27;) {
+    con = con.substr(1);
+  } else if (con.charAt(0) === &#x27;\r&#x27; &#x26;&#x26; con.charAt(1) === &#x27;\n&#x27;) {
+    con = con.substr(2);
+  }
+
+  res.content = con;
+  return res;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
 
 
     <h2>
