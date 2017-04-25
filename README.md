@@ -1,6 +1,6 @@
 # npmdoc-gray-matter
 
-#### api documentation for  [gray-matter (v2.1.1)](https://github.com/jonschlinkert/gray-matter)  [![npm package](https://img.shields.io/npm/v/npmdoc-gray-matter.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-gray-matter) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-gray-matter.svg)](https://travis-ci.org/npmdoc/node-npmdoc-gray-matter)
+#### basic api documentation for  [gray-matter (v2.1.1)](https://github.com/jonschlinkert/gray-matter)  [![npm package](https://img.shields.io/npm/v/npmdoc-gray-matter.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-gray-matter) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-gray-matter.svg)](https://travis-ci.org/npmdoc/node-npmdoc-gray-matter)
 
 #### Parse front-matter from a string or file. Fast, reliable and easy to use. Parses YAML front matter by default, but also has support for YAML, JSON, TOML or Coffee Front-Matter, with options to set custom delimiters. Used by metalsmith, assemble, verb and
 
@@ -173,7 +173,8 @@
             "verb-generate-readme"
         ]
     },
-    "version": "2.1.1"
+    "version": "2.1.1",
+    "bin": {}
 }
 ```
 
